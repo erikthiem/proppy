@@ -21,3 +21,24 @@ body {
 .full-size-image {
 	width: 100%;
 }
+
+.questions h1{
+	height: 140px;
+	color: #fff;
+	padding: 30px;
+	overflow-x: scroll;
+    white-space: nowrap;
+    width: 100%;
+}
+.questions.nba {
+	background-color: #a32525;
+}
+.questions.mlb {
+	background-color: #61822d;
+}
+.questions.nhl {
+	background-color: #94bee8;
+}
+.questions.cst {
+	background-color: #e0e0e0;
+}

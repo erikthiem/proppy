@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
+
+
+  get '/games/select' => 'games#select'
   resources :games
+
+
   devise_for :creators
   resources :welcome
+
+
 
   root 'welcome#index'
 

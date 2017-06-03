@@ -22,6 +22,10 @@ class GamesController < ApplicationController
   def edit
   end
 
+  # GET /games/select
+  def select
+  end
+
   # POST /games
   # POST /games.json
   def create
