@@ -15,3 +15,4 @@ Changelog
 + Added jquery-rails gme
 + Added rspec test to project
 + Added top navbar with login/logout
++ Removed minitest tests and added first rspec test
