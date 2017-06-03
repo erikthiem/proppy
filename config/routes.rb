@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :creators
   get 'welcome/index'
 
   root 'welcome#index'
