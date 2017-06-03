@@ -27,7 +27,15 @@ class GamesController < ApplicationController
   # POST /games
   # POST /games.json
   def create
-    @game = Game.new(game_params)
+    @game = Game.new
+    @game.title = params[:game][:title]
+    acceptableQuestionPattern = Regexp.new(/^question_[1-9][0-9]*/)
+    params[:game].each do |key, questionTitle|
+      if key.match acceptableQuestionPattern
+        question = Question.new(:title => questionTitle)
+        @game.questions.push question
+      end
+    end
 
     @game.creator_id = current_creator.id
 
