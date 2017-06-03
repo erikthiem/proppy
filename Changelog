@@ -20,3 +20,4 @@ Changelog
 + Removed minitest tests and added first rspec test
 + Scaffolded Games
 + Linked games and creators
++ Added Question model and linked it to Game
