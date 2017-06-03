@@ -1,10 +1,11 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_creator!
 
   # GET /games
   # GET /games.json
   def index
-    @games = Game.all
+    @games = current_creator.games
   end
 
   # GET /games/1
@@ -25,6 +26,8 @@ class GamesController < ApplicationController
   # POST /games.json
   def create
     @game = Game.new(game_params)
+
+    @game.creator_id = current_creator.id
 
     respond_to do |format|
       if @game.save
