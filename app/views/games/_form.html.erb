@@ -15,10 +15,15 @@
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title, id: :game_title %>
+  </div>
 
+  <div class="field questions">
     <%= form.label :question_1 %>
     <%= form.text_field :question_1, id: :game_question_1 %>
   </div>
+
+  <%= button_tag "Add Question", :type => "button", :id => "addQuestion" %>
+
 
   <div class="actions">
     <%= form.submit %>

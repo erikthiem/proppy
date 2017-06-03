@@ -16,4 +16,4 @@
 //= require bootstrap-sprockets
 //= require materialize-sprockets
 //= require materialize/extras/nouislider
-
+//= require games
