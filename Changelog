@@ -20,3 +20,5 @@ Changelog
 + Removed minitest tests and added first rspec test
 + Changes to index page styling
 + Added bootstrap
++ Scaffolded Games
++ Linked games and creators
