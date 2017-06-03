@@ -31,7 +31,25 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+
+
+
+# GEMS ADDED BY MAX AND ERIK ################################
+
+# Authentication
 gem 'devise'
+
+# JQuery
+gem 'jquery-rails'
+
+# Material Design SCSS
+gem 'materialize-sass'
+
+
+# END GEMS ADDED BY MAX AND ERIK ############################
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

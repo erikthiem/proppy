@@ -8,3 +8,8 @@ Changelog
 + Added Devise to Gemfile
 + Added Ruby 2.3.1 to Gemfile
 + Added Creator model/routes
++ Added materialize gem
++ Added materialize-gem.scss
++ Updated assets/stylesheets/application.css
++ Updated assest/javascripts/application.js
++ Added jquery-rails gme
