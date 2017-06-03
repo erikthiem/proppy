@@ -59,6 +59,8 @@ group :development, :test do
   gem 'selenium-webdriver'
 
   gem 'sqlite3'
+
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do

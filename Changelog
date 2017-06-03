@@ -13,3 +13,4 @@ Changelog
 + Updated assets/stylesheets/application.css
 + Updated assest/javascripts/application.js
 + Added jquery-rails gme
++ Added rspec test to project
