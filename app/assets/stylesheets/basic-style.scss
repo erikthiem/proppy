@@ -5,6 +5,19 @@ html {
 	background-color: $color_black_haze_approx;
 }
 
+body {
+	background-color: inherit;
+}
+
 .inner-card {
 	padding: 30px;
+}
+
+.container {
+	width: 100%;
+	padding: 30px;
+}
+
+.full-size-image {
+	width: 100%;
 }

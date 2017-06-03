@@ -43,6 +43,9 @@ gem 'devise'
 # JQuery
 gem 'jquery-rails'
 
+# Bootstrap
+gem 'bootstrap-sass', '~> 3.3.6'
+
 # Material Design SCSS
 gem 'materialize-sass'
 

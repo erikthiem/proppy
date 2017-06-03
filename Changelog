@@ -18,3 +18,5 @@ Changelog
 + Signup page styling
 + Added basic-style.scss to stylesheets and manifest
 + Removed minitest tests and added first rspec test
++ Changes to index page styling
++ Added bootstrap
