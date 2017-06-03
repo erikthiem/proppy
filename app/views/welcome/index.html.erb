@@ -9,17 +9,19 @@
 		</div>
 	  </div>
 
-				
+
 	  <!-- create game button -->
 	  <div class="row">
-		<div class="col-lg-2 col-lg-offset-10">
-		  <div class="btn-group" style="box-shadow:none;">
-			<button id="makePost" type="button" class="btn bg-light-blue"  >
-			  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create Game!
-			</button>
-		  </div>	
-		</div>
-		
+  		<div class="col-lg-2 col-lg-offset-10">
+  		  <div class="btn-group" style="box-shadow:none;">
+        <%= link_to(new_game_path) do %>
+    			<button id="makePost" type="button" class="btn bg-light-blue"  >
+    			  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create Game!
+    			</button>
+        <% end %>
+  		  </div>
+  		</div>
+
 	  </div>
 	  <!-- end create game button -->
 	</div>
@@ -30,13 +32,13 @@
 	  <div class="card">
 	    <div class="body inner-card">
 	    	<% if creator_signed_in? %>
-	          <%= render '/games/list' %>     
+	          <%= render '/games/list' %>
 	        <% else %>
 	          <h1>Create A Game and start getting jiggy.</h1>
 	          <p>TODO: Add some info about proppy, pictures, etc</p>
 	          <%= image_tag "DeathtoStock_Wired3.jpg", class: "full-size-image" %>
 	          <p>If you see this you are NOT logged in.</p>
-	        <% end %> 
+	        <% end %>
 	    </div>
 	  </div>
 	</div>
