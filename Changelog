@@ -19,3 +19,4 @@ Changelog
 + Added basic-style.scss to stylesheets and manifest
 + Removed minitest tests and added first rspec test
 + Scaffolded Games
++ Linked games and creators
