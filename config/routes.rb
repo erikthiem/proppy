@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  resources :games
   devise_for :creators
-  get 'welcome/index'
+  resources :welcome
 
   root 'welcome#index'
 
