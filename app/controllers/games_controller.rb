@@ -11,6 +11,8 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
+    @game = current_creator.games.find(params[:id])
+    @questions = @game.questions
   end
 
   # GET /games/new

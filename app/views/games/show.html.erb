@@ -1,6 +1,12 @@
 <p>
   <strong>Title:</strong>
   <%= @game.title %>
+
+  <ul>
+  <% @questions.each do |question| %>
+    <li><%= question.title %></li>
+  <% end %>
+  </ul>
 </p>
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
