@@ -8,3 +8,4 @@ Changelog
 + Added Devise to Gemfile
 + Added Ruby 2.3.1 to Gemfile
 + Added Creator model/routes
++ Added rspec test to project
