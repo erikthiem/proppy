@@ -17,3 +17,4 @@ Changelog
 + Added top navbar with login/logout
 + Signup page styling
 + Added basic-style.scss to stylesheets and manifest
++ Removed minitest tests and added first rspec test
