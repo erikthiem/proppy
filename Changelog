@@ -22,5 +22,6 @@ Changelog
 + Added bootstrap
 + Scaffolded Games
 + Linked games and creators
++ Added Question model and linked it to Game
 + if user is signed in, their games display
 + added game select screen
