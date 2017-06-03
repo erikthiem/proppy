@@ -29,7 +29,7 @@
 	<div class="row">
 	  <div class="card">
 	    <div class="body inner-card">
-	    	<% if false %>
+	    	<% if creator_signed_in? %>
 	          <%= render '/games/list' %>     
 	        <% else %>
 	          <h1>Create A Game and start getting jiggy.</h1>
