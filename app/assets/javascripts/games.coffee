@@ -5,10 +5,12 @@
 $ ->
   questionsDomElement = $(".questions")
 
-  
-
-  newQuestion = '<label for="game_question_1">Question 1</label>
-    <input id="game_question_1" name="game[question_1]" type="text">'
-
   $("#addQuestion").on "click", (e) ->
+    debugger
+    numQuestions = $(".questions").children("input").length
+    newQuestionNumber = numQuestions + 1
+    newQuestion = "<label for='game_question_#{newQuestionNumber + 1}'>Question #{newQuestionNumber}</label>
+      <input id='game_question_#{newQuestionNumber + 1}' name='game[question_#{newQuestionNumber + 1}]' type='text'>"
+
     questionsDomElement.append newQuestion
+    numQuestions++

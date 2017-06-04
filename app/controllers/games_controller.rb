@@ -18,10 +18,12 @@ class GamesController < ApplicationController
   # GET /games/new
   def new
     @game = Game.new
+    @questions = @game.questions
   end
 
   # GET /games/1/edit
   def edit
+    @questions = @game.questions
   end
 
   # GET /games/select
@@ -36,15 +38,7 @@ class GamesController < ApplicationController
   # POST /games.json
   def create
     @game = Game.new
-    @game.title = params[:game][:title]
-    acceptableQuestionPattern = Regexp.new(/^question_[1-9][0-9]*/)
-    params[:game].each do |key, questionTitle|
-      if key.match acceptableQuestionPattern
-        question = Question.new(:title => questionTitle)
-        @game.questions.push question
-      end
-    end
-
+    parse_game_params
     @game.creator_id = current_creator.id
 
     respond_to do |format|
@@ -61,8 +55,10 @@ class GamesController < ApplicationController
   # PATCH/PUT /games/1
   # PATCH/PUT /games/1.json
   def update
+    parse_game_params
+
     respond_to do |format|
-      if @game.update(game_params)
+      if @game.update(:id => params[:id])
         format.html { redirect_to @game, notice: 'Game was successfully updated.' }
         format.json { render :show, status: :ok, location: @game }
       else
@@ -88,8 +84,15 @@ class GamesController < ApplicationController
       @game = current_creator.games.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def game_params
-      params.require(:game).permit(:title)
+    def parse_game_params
+      @game.title = params[:game][:title]
+      @game.questions.clear
+      acceptableQuestionPattern = Regexp.new(/^question_[1-9][0-9]*/)
+      params[:game].each do |key, questionTitle|
+        if key.match acceptableQuestionPattern
+          question = Question.new(:title => questionTitle)
+          @game.questions.push question
+        end
+      end
     end
 end

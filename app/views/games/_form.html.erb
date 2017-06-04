@@ -18,12 +18,13 @@
   </div>
 
   <div class="field questions">
-    <%= form.label :question_1 %>
-    <%= form.text_field :question_1, id: :game_question_1 %>
+    <% @questions.each_with_index do |question, i| %>
+      <label for="game_question_<%= i + 1 %>">Question <%= i+1 %></label>
+      <input id="game_question_<%= i + 1 %>" name="game[question_<%= i + 1 %>]" type="text" Value="<%= question.title %>">
+    <% end %>
   </div>
 
   <%= button_tag "Add Question", :type => "button", :id => "addQuestion" %>
-
 
   <div class="actions">
     <%= form.submit %>
