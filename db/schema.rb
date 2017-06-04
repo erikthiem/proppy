@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170604150803) do
+ActiveRecord::Schema.define(version: 20170604152339) do
 
   create_table "creators", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -46,6 +46,15 @@ ActiveRecord::Schema.define(version: 20170604150803) do
     t.string "response2"
     t.string "correct_response"
     t.index ["game_id"], name: "index_questions_on_game_id"
+  end
+
+  create_table "submissions", force: :cascade do |t|
+    t.text "name"
+    t.text "answers"
+    t.integer "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_submissions_on_game_id"
   end
 
 end

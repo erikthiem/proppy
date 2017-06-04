@@ -25,3 +25,10 @@ Changelog
 + Added Question model and linked it to Game
 + if user is signed in, their games display
 + added game select screen
++ generated submission 
+	- rails g model Submission name:text answers:text game:references
++ added has_many :submissions to game model
++ generated submissions controller
+	- rails g controller Submissions
++ Add submission validation on game
+	- validates_associated :submissions
