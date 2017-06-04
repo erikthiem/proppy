@@ -19,10 +19,19 @@ class Game < ApplicationRecord
   end
 
 
-  def submission_form
-  	"<%= form_for @submission do |f| %>"
-  	
-
+  def submission_form_fields
+  	fields = ""
+  	self.questions.each do |question|
+  		fields += """
+  		<h4>#{question.title}</h4>
+        <div class='form-group'>
+          <div class='btn-group styled-select slate'>
+            <%= f.select(:business_type, [[#{question.response1}, '1'], [#{question.response2}, '2']], {}, { :class => 'btn dropdown-toggle btn-default' }) %>
+          </div>
+        </div>
+        """
+  	end
+  	fields
   end
 
 

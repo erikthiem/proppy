@@ -32,3 +32,6 @@ Changelog
 	- rails g controller Submissions
 + Add submission validation on game
 	- validates_associated :submissions
++ Added code to game in db
+	- rails generate migration add_code_to_games code:string
+
