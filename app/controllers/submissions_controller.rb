@@ -14,7 +14,7 @@ class SubmissionsController < ApplicationController
   def new
   	@code = params[:code]
   	#@game = Game.from_code(code)
-    @submissions = Submissions.new
+    @submissions = Submission.new
   end
 
   # POST /submissions
