@@ -39,12 +39,13 @@ class GamesController < ApplicationController
   def create
     @game = Game.new
     parse_game_params
-    @game.creator_id = current_creator.id
 
+    @game.creator = current_creator
     respond_to do |format|
       if @game.save
         format.html { redirect_to @game, notice: 'Game was successfully created.' }
         format.json { render :show, status: :created, location: @game }
+        @game.creator.send_game_created_email(@game)
       else
         format.html { render :new }
         format.json { render json: @game.errors, status: :unprocessable_entity }
