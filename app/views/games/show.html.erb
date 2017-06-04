@@ -5,6 +5,10 @@
   <ul>
   <% @questions.each do |question| %>
     <li><%= question.title %></li>
+    <ul>
+      <li><%= question.response1 %></li>
+      <li><%= question.response2 %></li>
+    </ul>
   <% end %>
   </ul>
 </p>

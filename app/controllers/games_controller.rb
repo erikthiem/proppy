@@ -88,11 +88,14 @@ class GamesController < ApplicationController
     def parse_game_params
       @game.title = params[:game][:title]
       @game.questions.clear
-      acceptableQuestionPattern = Regexp.new(/^question_[1-9][0-9]*/)
+      acceptableQuestionPattern = Regexp.new(/^question_[1-9][0-9]*$/)
       params[:game].each do |key, questionTitle|
         if key.match acceptableQuestionPattern
           if not questionTitle.empty? then
-            question = Question.new(:title => questionTitle, :response1 => "value1", :response2 => "value2", :correct_response => "1")
+            response1 = params[:game]["#{key}_response_1"]
+            response2 = params[:game]["#{key}_response_2"]
+
+            question = Question.new(:title => questionTitle, :response1 => response1, :response2 => response2)
             @game.questions.push question
           end
         end
