@@ -1,8 +1,8 @@
 class Game < ApplicationRecord
   validates :title, presence: true
 
-  has_many :questions
-  has_many :submissions
+  has_many :questions, dependent :destroy
+  has_many :submissions, dependent :destroy
   belongs_to :creator
 
   before_create :generate_code
