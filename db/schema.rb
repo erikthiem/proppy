@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170603174647) do
+ActiveRecord::Schema.define(version: 20170604150803) do
 
   create_table "creators", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(version: 20170603174647) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "game_id"
+    t.string "response1"
+    t.string "response2"
+    t.string "correct_response"
     t.index ["game_id"], name: "index_questions_on_game_id"
   end
 

@@ -91,8 +91,10 @@ class GamesController < ApplicationController
       acceptableQuestionPattern = Regexp.new(/^question_[1-9][0-9]*/)
       params[:game].each do |key, questionTitle|
         if key.match acceptableQuestionPattern
-          question = Question.new(:title => questionTitle)
-          @game.questions.push question
+          if not questionTitle.empty? then
+            question = Question.new(:title => questionTitle, :response1 => "value1", :response2 => "value2", :correct_response => "1")
+            @game.questions.push question
+          end
         end
       end
     end
