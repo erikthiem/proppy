@@ -91,6 +91,11 @@ class GamesController < ApplicationController
     redirect_to root_path
   end
 
+  def play
+    set_game
+    @questions = @game.questions
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_game

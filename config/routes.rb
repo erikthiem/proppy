@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :games do
     post :lock, on: :member
+    get :play, on: :member
   end
 
 

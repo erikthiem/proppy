@@ -2,7 +2,7 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th colspan="4"></th>
+      <th colspan="5"></th>
       <th>Code</th>
     </tr>
   </thead>
@@ -20,6 +20,8 @@
         <% else %>
           <td>Locked</td>
         <% end %>
+
+        <td><% if game.locked then %><%= link_to 'Play', play_game_path(game) %><% end %></td>
 
         <td><%= game.code %></td>
       </tr>
