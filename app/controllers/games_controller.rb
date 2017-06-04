@@ -24,7 +24,11 @@ class GamesController < ApplicationController
 
   # GET /games/1/edit
   def edit
-    @questions = @game.questions
+    if not @game.locked then
+      @questions = @game.questions
+    else
+      redirect_to root_path
+    end
   end
 
   # GET /games/select
@@ -53,16 +57,20 @@ class GamesController < ApplicationController
   # PATCH/PUT /games/1
   # PATCH/PUT /games/1.json
   def update
-    parse_game_params
+    if not @game.locked
+      parse_game_params
 
-    respond_to do |format|
-      if @game.update(:id => params[:id])
-        format.html { redirect_to @game, notice: 'Game was successfully updated.' }
-        format.json { render :show, status: :ok, location: @game }
-      else
-        format.html { render :edit }
-        format.json { render json: @game.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @game.update(:id => params[:id])
+          format.html { redirect_to @game, notice: 'Game was successfully updated.' }
+          format.json { render :show, status: :ok, location: @game }
+        else
+          format.html { render :edit }
+          format.json { render json: @game.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to root_path
     end
   end
 

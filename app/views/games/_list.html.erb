@@ -12,7 +12,7 @@
       <tr>
         <td><%= game.title %></td>
         <td><%= link_to 'Show', game %></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
+        <td><% if not game.locked %><%= link_to 'Edit', edit_game_path(game) %><% end %></td>
         <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
         <% if not game.locked then %>
@@ -20,7 +20,7 @@
         <% else %>
           <td>Locked</td>
         <% end %>
-        
+
         <td><%= game.code %></td>
       </tr>
     <% end %>
