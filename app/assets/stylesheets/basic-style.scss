@@ -22,6 +22,16 @@ body {
 	width: 100%;
 }
 
+a.questions {
+	height: 140px !important;
+	width: 100% !important;
+	color: #fff !important;
+	padding: 30px !important;
+	overflow-x: scroll;
+    white-space: nowrap;
+    font-size:500%;
+}
+
 input.questions {
 	height: 140px !important;
 	width: 100% !important;
