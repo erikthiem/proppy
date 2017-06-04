@@ -20,7 +20,14 @@
   <div class="field questions">
     <% @questions.each_with_index do |question, i| %>
       <label for="game_question_<%= i + 1 %>">Question <%= i+1 %></label>
-      <input id="game_question_<%= i + 1 %>" name="game[question_<%= i + 1 %>]" type="text" Value="<%= question.title %>">
+      <input class="question" id="game_question_<%= i + 1 %>" name="game[question_<%= i + 1 %>]" type="text" Value="<%= question.title %>">
+
+      <label for="game_question_<%= i + 1 %>_response_1">Response 1</label>
+      <input id="game_question_<%= i + 1 %>_response_1" name="game[question_<%= i + 1 %>_response_1]" type="text" Value="<%= question.response1 %>">
+
+      <label for="game_question_<%= i + 1 %>_response_2">Response 2</label>
+      <input id="game_question_<%= i + 1 %>_response_2" name="game[question_<%= i + 1 %>_response_2]" type="text" Value="<%= question.response2 %>">
+
     <% end %>
   </div>
 

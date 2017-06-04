@@ -6,10 +6,18 @@ $ ->
   questionsDomElement = $(".questions")
 
   $("#addQuestion").on "click", (e) ->
-    numQuestions = $(".questions").children("input").length
+    numQuestions = $("input.question").length
     newQuestionNumber = numQuestions + 1
-    newQuestion = "<label for='game_question_#{newQuestionNumber + 1}'>Question #{newQuestionNumber}</label>
-      <input id='game_question_#{newQuestionNumber + 1}' name='game[question_#{newQuestionNumber + 1}]' type='text'>"
 
-    questionsDomElement.append newQuestion
-    numQuestions++
+    newQuestion = "<label for='game_question_#{newQuestionNumber}'>Question #{newQuestionNumber}</label>
+      <input class='question' id='game_question_#{newQuestionNumber}' name='game[question_#{newQuestionNumber}]' type='text'>"
+
+    newQuestionResponse1 = "<label for='game_question_#{newQuestionNumber}_response_1'>Response 1</label>
+      <input id='game_question_#{newQuestionNumber}_response_1' name='game[question_#{newQuestionNumber}_response_1]' type='text'>"
+
+    newQuestionResponse2 = "<label for='game_question_#{newQuestionNumber}_response_2'>Response 2</label>
+      <input id='game_question_#{newQuestionNumber}_response_2' name='game[question_#{newQuestionNumber}_response_2]' type='text'>"
+
+    newQuestionHtmlChunk = "#{newQuestion}#{newQuestionResponse1}#{newQuestionResponse2}"
+
+    questionsDomElement.append newQuestionHtmlChunk
