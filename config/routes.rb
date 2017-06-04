@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   get '/games/select' => 'games#select'
+  post '/games/create_nba' => 'games#create_nba'
   resources :games
 
 

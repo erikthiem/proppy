@@ -2,25 +2,36 @@
 <h1>Select your Game!</h1>
 <div class="row">
   <div class="col-lg-6">
-    <div class="questions nba img-rounded">
-      <h1>NBA Finals 2017</h1>
-    </div>
+
+    <form action="/games/create" id="searchBar" method="post">
+      <!-- Add authenticity token to form -->
+      <%= render 'proppy_nba_finals_2017_game2' %>
+      <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+      <input type="submit" value="NBA Finals 2017" class="questions nba img-rounded">
+    </form>
+
   </div>
   <div class="col-lg-6">
-    <div class="questions nhl img-rounded">
-      <h1>Stanely Cup Playoffs 2017</h1>
-    </div>
+    <form action="/games/create_nba" id="searchBar" method="post">
+      <!-- Add authenticity token to form -->
+      <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+      <input type="submit" value="NHL Finals 2017" class="questions nhl img-rounded">
+    </form>
   </div>
 </div>
 <div class="row">
   <div class="col-lg-6">
-    <div class="questions mlb img-rounded">
-      <h1>MLB 2017</h1>
-    </div>
+    <form action="/games/create_nba" id="searchBar" method="post">
+      <!-- Add authenticity token to form -->
+      <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+      <input type="submit" value="MLB Finals 2017" class="questions mlb img-rounded">
+    </form>
   </div>
   <div class="col-lg-6">
-    <div class="questions cst img-rounded">
-      <h1>Custom Questions</h1>
-    </div>
+    <form action="/games/create_nba" id="searchBar" method="post">
+      <!-- Add authenticity token to form -->
+      <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+      <input type="submit" value="Custom Questions" class="questions cst img-rounded">
+    </form>
   </div>
 </div>
