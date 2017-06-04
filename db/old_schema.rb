@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20170604213915) do
+=======
 ActiveRecord::Schema.define(version: 20170604181844) do
+>>>>>>> 895d84b262cd00b30c050add19915736927ab54d
 
   create_table "creators", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -35,7 +39,10 @@ ActiveRecord::Schema.define(version: 20170604181844) do
     t.datetime "updated_at", null: false
     t.integer "creator_id"
     t.string "code"
+<<<<<<< HEAD
+=======
     t.boolean "locked", default: false
+>>>>>>> 895d84b262cd00b30c050add19915736927ab54d
     t.index ["creator_id"], name: "index_games_on_creator_id"
   end
 

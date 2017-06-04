@@ -1,8 +1,8 @@
 class Game < ApplicationRecord
   validates :title, presence: true
-  
-  has_many :questions
-  has_many :submissions
+
+  has_many :questions, dependent: :destroy
+  has_many :submissions, dependent: :destroy
   belongs_to :creator
 
   before_create :generate_code
@@ -17,7 +17,6 @@ class Game < ApplicationRecord
   def generate_code
     self.code = SecureRandom.hex(8)[0,8].upcase
   end
-
 
   def submission_form_fields
   	fields = ""
@@ -34,6 +33,10 @@ class Game < ApplicationRecord
   	fields
   end
 
+  def lock!
+    self.locked = true
+    self.save
+  end
 
 
 end

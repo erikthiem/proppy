@@ -2,7 +2,8 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th colspan="3"></th>
+      <th colspan="5"></th>
+      <th>Code</th>
     </tr>
   </thead>
 
@@ -11,8 +12,18 @@
       <tr>
         <td><%= game.title %></td>
         <td><%= link_to 'Show', game %></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
+        <td><% if not game.locked %><%= link_to 'Edit', edit_game_path(game) %><% end %></td>
         <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <% if not game.locked then %>
+          <td><%= link_to 'Lock', lock_game_path(game), method: :post, data: {confirm: 'Are you sure? You cannot unlock the game! Only do this when you are finished editing the game.'} %></td>
+        <% else %>
+          <td>Locked</td>
+        <% end %>
+
+        <td><% if game.locked then %><%= link_to 'Play', play_game_path(game) %><% end %></td>
+
+        <td><%= game.code %></td>
       </tr>
     <% end %>
   </tbody>

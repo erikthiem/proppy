@@ -2,8 +2,11 @@ Rails.application.routes.draw do
 
 
   get '/games/select' => 'games#select'
-  post '/games/create_nba' => 'games#create_nba'
-  resources :games
+
+  resources :games do
+    post :lock, on: :member
+    get :play, on: :member
+  end
 
 
   devise_for :creators

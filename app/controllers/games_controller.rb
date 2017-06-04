@@ -6,6 +6,7 @@ class GamesController < ApplicationController
   # GET /games.json
   def index
     @games = current_creator.games
+    redirect_to root_path
   end
 
   # GET /games/1
@@ -23,15 +24,15 @@ class GamesController < ApplicationController
 
   # GET /games/1/edit
   def edit
-    @questions = @game.questions
+    if not @game.locked then
+      @questions = @game.questions
+    else
+      redirect_to root_path
+    end
   end
 
   # GET /games/select
   def select
-  end
-
-  def create_nba
-    puts 'derrnnn!'
   end
 
   # POST /games
@@ -56,16 +57,20 @@ class GamesController < ApplicationController
   # PATCH/PUT /games/1
   # PATCH/PUT /games/1.json
   def update
-    parse_game_params
+    if not @game.locked
+      parse_game_params
 
-    respond_to do |format|
-      if @game.update(:id => params[:id])
-        format.html { redirect_to @game, notice: 'Game was successfully updated.' }
-        format.json { render :show, status: :ok, location: @game }
-      else
-        format.html { render :edit }
-        format.json { render json: @game.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @game.update(:id => params[:id])
+          format.html { redirect_to @game, notice: 'Game was successfully updated.' }
+          format.json { render :show, status: :ok, location: @game }
+        else
+          format.html { render :edit }
+          format.json { render json: @game.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to root_path
     end
   end
 
@@ -77,6 +82,18 @@ class GamesController < ApplicationController
       format.html { redirect_to games_url, notice: 'Game was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # POST /games/1/lock
+  def lock
+    set_game
+    @game.lock!
+    redirect_to root_path
+  end
+
+  def play
+    set_game
+    @questions = @game.questions
   end
 
   private
