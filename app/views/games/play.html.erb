@@ -20,11 +20,11 @@
       <div class="form-group">
         <h4><%= question.title %></h4>
 
-        <%= radio_button("question", "correct_response", "1") %>
-        <%= label_tag(:response1, question.response1) %>
+        <%= radio_button("question_#{i + 1}", "correct_response", "1") %>
+        <%= label_tag("question_#{i + 1}_correct_response_1", question.response1) %>
 
-        <%= radio_button("question", "correct_response", "2") %>
-        <%= label_tag(:response2, question.response2) %>
+        <%= radio_button("question_#{i + 1}", "correct_response", "2") %>
+        <%= label_tag("question_#{i + 1}_correct_response_2", question.response2) %>
 
       </div>
 
