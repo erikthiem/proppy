@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170604152339) do
+ActiveRecord::Schema.define(version: 20170604180834) do
 
   create_table "creators", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20170604152339) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "creator_id"
+    t.string "code"
     t.index ["creator_id"], name: "index_games_on_creator_id"
   end
 
