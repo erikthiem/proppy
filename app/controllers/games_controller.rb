@@ -29,11 +29,7 @@ class GamesController < ApplicationController
   # GET /games/select
   def select
   end
-
-  def create_nba
-    puts 'derrnnn!'
-  end
-
+  
   # POST /games
   # POST /games.json
   def create
