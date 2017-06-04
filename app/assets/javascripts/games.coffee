@@ -6,7 +6,6 @@ $ ->
   questionsDomElement = $(".questions")
 
   $("#addQuestion").on "click", (e) ->
-    debugger
     numQuestions = $(".questions").children("input").length
     newQuestionNumber = numQuestions + 1
     newQuestion = "<label for='game_question_#{newQuestionNumber + 1}'>Question #{newQuestionNumber}</label>
