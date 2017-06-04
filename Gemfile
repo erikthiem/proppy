@@ -53,6 +53,9 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'materialize-sass'
 
 
+# Make turbolinks not mess up jquery stuff
+gem 'jquery-turbolinks'
+
 # END GEMS ADDED BY MAX AND ERIK ############################
 
 
