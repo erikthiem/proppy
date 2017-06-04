@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
 
   get '/games/select' => 'games#select'
-  resources :games
+
+  resources :games do
+    post :lock, on: :member
+  end
 
 
   devise_for :creators

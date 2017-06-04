@@ -1,6 +1,6 @@
 class Game < ApplicationRecord
   validates :title, presence: true
-  
+
   has_many :questions
   has_many :submissions
   belongs_to :creator
@@ -21,10 +21,12 @@ class Game < ApplicationRecord
 
   def submission_form
   	"<%= form_for @submission do |f| %>"
-  	
-
   end
 
+  def lock!
+    self.locked = true
+    self.save
+  end
 
 
 end

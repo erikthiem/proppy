@@ -6,6 +6,7 @@ class GamesController < ApplicationController
   # GET /games.json
   def index
     @games = current_creator.games
+    redirect_to root_path
   end
 
   # GET /games/1
@@ -29,7 +30,7 @@ class GamesController < ApplicationController
   # GET /games/select
   def select
   end
-  
+
   # POST /games
   # POST /games.json
   def create
@@ -73,6 +74,13 @@ class GamesController < ApplicationController
       format.html { redirect_to games_url, notice: 'Game was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # POST /games/1/lock
+  def lock
+    set_game
+    @game.lock!
+    redirect_to root_path
   end
 
   private
