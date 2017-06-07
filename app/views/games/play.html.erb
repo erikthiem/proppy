@@ -19,11 +19,19 @@
 
       <div class="form-group">
         <h4><%= question.title %></h4>
+
         <%= radio_button("question_#{i + 1}", "correct_response", "1", :checked => (question.correct_response == "1")) %>
-        <%= label_tag("question_#{i + 1}_correct_response_1", question.response1) %>
+        <%= label_tag("question_#{i + 1}_correct_response_1", "Choice 1: #{question.response1}") %>
+
+        <br />
 
         <%= radio_button("question_#{i + 1}", "correct_response", "2", :checked => (question.correct_response == "2")) %>
-        <%= label_tag("question_#{i + 1}_correct_response_2", question.response2) %>
+        <%= label_tag("question_#{i + 1}_correct_response_2", "Choice 2: #{question.response2}") %>
+
+        <br />
+
+        <%= radio_button("question_#{i + 1}", "correct_response", "0") %>
+        <%= label_tag("question_#{i + 1}_correct_response_0", "Clear Answer") %>
 
       </div>
 
