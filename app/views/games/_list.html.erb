@@ -2,8 +2,9 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th colspan="5"></th>
-      <th>Code</th>
+      <th colspan="3"></th>
+      <th>Mark Correct Answers</th>
+      <th>Share Url</th>
     </tr>
   </thead>
 
@@ -11,9 +12,8 @@
     <% @games.each do |game| %>
       <tr>
         <td><%= game.title %></td>
-        <td><%= link_to 'Show', game %></td>
         <td><% if not game.locked %><%= link_to 'Edit', edit_game_path(game) %><% end %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
         <% if not game.locked then %>
           <td><%= link_to 'Lock', lock_game_path(game), method: :post, data: {confirm: 'Are you sure? You cannot unlock the game! Only do this when you are finished editing the game.'} %></td>
@@ -23,7 +23,7 @@
 
         <td><% if game.locked then %><%= link_to 'Play', play_game_path(game) %><% end %></td>
 
-        <td><%= game.code %></td>
+        <td><%= link_to "#{request.base_url}/submissions/new?code=#{game.code}", "#{request.base_url}/submissions/new?code=#{game.code}", target: :blank %></td>
       </tr>
     <% end %>
   </tbody>
