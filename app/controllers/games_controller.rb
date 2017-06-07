@@ -74,6 +74,12 @@ class GamesController < ApplicationController
     end
   end
 
+  def update_correct_answers
+    set_game
+    parse_correct_answers
+    redirect_to root_path
+  end
+
   # DELETE /games/1
   # DELETE /games/1.json
   def destroy
@@ -115,6 +121,17 @@ class GamesController < ApplicationController
             question = Question.new(:title => questionTitle, :response1 => response1, :response2 => response2)
             @game.questions.push question
           end
+        end
+      end
+    end
+
+    def parse_correct_answers
+      acceptableQuestionPattern = Regexp.new(/^question_[1-9][0-9]*$/)
+      params.each do |key, response|
+        if key.match acceptableQuestionPattern
+          i = key.split("_")[1].to_i - 1
+          @game.questions[i].correct_response = response[:correct_response]
+          @game.save
         end
       end
     end

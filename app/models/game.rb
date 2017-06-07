@@ -1,7 +1,7 @@
 class Game < ApplicationRecord
   validates :title, presence: true
 
-  has_many :questions, dependent: :destroy
+  has_many :questions, dependent: :destroy, autosave: true
   has_many :submissions, dependent: :destroy
   belongs_to :creator
 

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :games do
     post :lock, on: :member
     get :play, on: :member
+    patch :update_correct_answers, on: :member
   end
 
 
