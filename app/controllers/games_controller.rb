@@ -102,6 +102,11 @@ class GamesController < ApplicationController
     @questions = @game.questions
   end
 
+  def live
+    set_game
+    @submissions = @game.submissions
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_game

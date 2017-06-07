@@ -1,0 +1,7 @@
+<h4>Game info:</h4>
+<%= @game.attributes %>
+
+<h4>Submission info: </h4>
+<% @submissions.each do |submission| %>
+  <%= submission.attributes %>
+<% end %>

@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   get '/games/select' => 'games#select'
 
   resources :games do
-    post :lock, on: :member
     get :play, on: :member
+    get :live, on: :member
+    post :lock, on: :member
     patch :update_correct_answers, on: :member
   end
 
