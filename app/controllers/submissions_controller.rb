@@ -16,17 +16,13 @@ class SubmissionsController < ApplicationController
   	@game = Game.from_code(@code)
     @submission = Submission.new
     @submission.game = @game
-    #@game.submissions << @submission
   end
 
   # POST /submissions
   # POST /submissions.json
   def create
-  	# This will never be hit oddly
-  	logger.debug 'herrrr'
-    #@submission = Submission.new
-    #@game.creator = current_creator
-    redirect_to('/')
+    parse_submit_params
+    redirect_to root_path
   end
 
   # gets hit a
@@ -38,6 +34,16 @@ class SubmissionsController < ApplicationController
   # DELETE /submissions/1.json
   def destroy
     @submission.destroy
+  end
+
+  private
+
+  def parse_submit_params
+    submission = params[:submission]
+    game = Game.from_code(submission[:code])
+    name = submission[:name]
+
+    @submission = Submission.create(:game => game, :name => name)
   end
 
 end

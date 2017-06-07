@@ -1,3 +1,3 @@
-class Submission < ApplicationRecord
+class Submission < ApplicationRecord  
   belongs_to :game
 end
