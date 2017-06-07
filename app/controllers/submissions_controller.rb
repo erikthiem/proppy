@@ -43,7 +43,6 @@ class SubmissionsController < ApplicationController
     game = Game.from_code(submission[:code])
     name = submission[:name]
     answers = submission[:answers]
-    byebug
 
     @submission = Submission.create(:game => game, :name => name, :answers => answers)
   end
