@@ -2,5 +2,6 @@
 <h1>Yo! your game, <%= @game.title %> was created.  Share the link below with your friends to be cool.</h1>
 
 <h4>
-  <%= link_to "http://prop-e.herokuapp.com/submissions/new?code=" + @game.code, "http://prop-e.herokuapp.com/submissions/new?code=" + @game.code %>
+  <% gameCodeUrl = "#{request.base_url}/submissions/new?code=#{@game.code}" %>
+  <%= link_to gameCodeUrl, gameCodeUrl %>
 </h4>
