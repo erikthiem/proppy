@@ -42,8 +42,10 @@ class SubmissionsController < ApplicationController
     submission = params[:submission]
     game = Game.from_code(submission[:code])
     name = submission[:name]
+    answers = submission[:answers]
+    byebug
 
-    @submission = Submission.create(:game => game, :name => name)
+    @submission = Submission.create(:game => game, :name => name, :answers => answers)
   end
 
 end

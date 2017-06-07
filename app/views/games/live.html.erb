@@ -1,7 +1,13 @@
-<h4>Game info:</h4>
-<%= @game.attributes %>
+<h2><%= @game.title %></h2>
 
-<h4>Submission info: </h4>
+<h4>Submissions:</h4>
+<div class="submissions">
 <% @submissions.each do |submission| %>
-  <%= submission.attributes %>
+
+  <div class="submission">
+    <p>Name: <%= submission.name %></p>
+    <p>Answers: <%= submission.answers %></p>
+  </div>
+
 <% end %>
+</div>
