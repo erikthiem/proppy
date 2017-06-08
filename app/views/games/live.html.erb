@@ -1,12 +1,22 @@
 <h2><%= @game.title %></h2>
 
-<h4>Submissions:</h4>
-<div class="submissions">
-<% @submissions.each do |submission| %>
+<div class="questions">
+<% @questions.each do |question| %>
 
-  <div class="submission">
-    <p>Name: <%= submission.name %></p>
-    <p>Answers: <%= submission.answers %></p>
+  <div class="question">
+
+    <h4><%= question.title %></h4>
+
+    <h5>Response 1: <%= question.response1 %></h5>
+    <ul>
+      <li>Erik</li>
+    </ul>
+
+    <h5>Response 2: <%= question.response2 %></h5>
+    <ul>
+      <li>Max</li>
+    </ul>
+
   </div>
 
 <% end %>

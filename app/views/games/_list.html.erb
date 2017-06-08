@@ -4,6 +4,7 @@
       <th>Title</th>
       <th colspan="3"></th>
       <th>Mark Correct Answers</th>
+      <th>View Live Updates</th>
       <th>Share Url</th>
     </tr>
   </thead>
@@ -22,7 +23,7 @@
         <% end %>
 
         <td><% if game.locked then %><%= link_to 'Play', play_game_path(game) %><% end %></td>
-
+        <td><% if game.locked then %><%= link_to 'Live', live_game_path(game) %><% end %></td>
         <td><%= link_to "#{request.base_url}/submissions/new?code=#{game.code}", "#{request.base_url}/submissions/new?code=#{game.code}", target: :blank %></td>
       </tr>
     <% end %>

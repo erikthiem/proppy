@@ -104,6 +104,9 @@ class GamesController < ApplicationController
 
   def live
     set_game
+
+    redirect_to root_path if not @game.locked
+    @questions = @game.questions
     @submissions = @game.submissions
   end
 
