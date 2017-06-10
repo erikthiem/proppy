@@ -14,8 +14,12 @@ class SubmissionsController < ApplicationController
   def new
   	@code = params[:code]
   	@game = Game.from_code(@code)
-    @submission = Submission.new
-    @submission.game = @game
+    if @game.locked then
+      redirect_to root_path, alert: "Sorry, this game has been locked!"
+    else
+      @submission = Submission.new
+      @submission.game = @game
+    end
   end
 
   # POST /submissions

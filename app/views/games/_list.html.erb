@@ -24,7 +24,13 @@
 
         <td><% if game.locked then %><%= link_to 'Play', play_game_path(game) %><% end %></td>
         <td><% if game.locked then %><%= link_to 'Live', live_game_path(game) %><% end %></td>
-        <td><%= link_to "#{request.base_url}/submissions/new?code=#{game.code}", "#{request.base_url}/submissions/new?code=#{game.code}", target: :blank %></td>
+        <td>
+          <% if game.locked then %>
+          Game in progress!
+          <% else %>
+            <%= link_to "#{request.base_url}/submissions/new?code=#{game.code}", "#{request.base_url}/submissions/new?code=#{game.code}", target: :blank %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
